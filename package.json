@@ -1,13 +1,32 @@
 {
   "name": "dz-wilayas",
   "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "start": "node src/index.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "exports": {
+    ".": {
+      "require": "./dist/index.cjs",
+      "import": "./dist/index.js"
+    }
   },
-  "keywords": [],
-  "author": "",
-  "license": "ISC"
+  "type": "commonjs",
+  "scripts": {
+    "build": "esbuild src/index.js --bundle --outfile=dist/index.js --format=esm && esbuild src/index.js --bundle --outfile=dist/index.cjs --format=cjs"
+  },
+  "devDependencies": {
+    "esbuild": "^0.25.5"
+  },
+  "license": "MIT",
+  "author": "Ayyoub",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ay-ub/dz-wilayas.git"
+  },
+  "keywords": [
+    "dz",
+    "algeria",
+    "wilaya",
+    "algerian",
+    "data"
+  ]
 }
